@@ -11,7 +11,7 @@ const room = require('./routes/room');
 const User = require('./models/user');
 require('dotenv').config();
 
-
+const PORT = process.env.PORT;
 // Initialize knex connection.
 const knex = Knex(knexConfig.development);
 Model.knex(knex);
@@ -90,6 +90,6 @@ app.use('/api', userRoutes);
 app.use('/api/room', room);
 
 // Start server
-app.listen(5000, () => {
-  console.log('Server started at http://localhost:5000');
+app.listen(PORT, () => {
+  console.log( `Server started at http://localhost:${PORT}`);
 });
